@@ -1,12 +1,10 @@
 {
-    "name": "Grow",
-    "rootNamespace": "",
-    "references": [
-        "GUID:cd915bbddb22877448c9501f9d2c3f52"
-    ],
+    "name": "Things.Shared",
+    "rootNamespace": "Things",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": true,
+    "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
