@@ -1,0 +1,16 @@
+{
+    "name": "Shapes",
+    "rootNamespace": "Shapes",
+    "references": [
+        "GUID:cd915bbddb22877448c9501f9d2c3f52"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -5,31 +5,31 @@ namespace Things
 {
     public class MaterialProperties
     {
-        private MaterialPropertyBlock propertyBlock;
-        private MeshRenderer renderer;
+        private readonly MaterialPropertyBlock propertyBlock;
+        public readonly MeshRenderer Renderer;
         private bool isInvalidated;
 
         public MaterialProperties(MeshRenderer renderer)
         {
             propertyBlock = new MaterialPropertyBlock();
             renderer.GetPropertyBlock(propertyBlock);
-            this.renderer = renderer;
+            this.Renderer = renderer;
         }
 
         public void Dispose()
         {
-            renderer.SetPropertyBlock(null);
+            Renderer.SetPropertyBlock(null);
         }
 
         public bool Apply()
         {
             if (!isInvalidated) return false;
-            renderer.SetPropertyBlock(propertyBlock);
+            Renderer.SetPropertyBlock(propertyBlock);
             isInvalidated = false;
             return true;
         }
 
-        private void Invalidate(IProperty property)
+        internal void Invalidate(IProperty property)
         {
             property.Apply(propertyBlock);
             isInvalidated = true;

@@ -5,25 +5,31 @@ namespace Things
     [RequireComponent(typeof(MeshRenderer))]
     public abstract class MaterialPropertiesBehaviour : MonoBehaviour
     {
-        private MaterialProperties properties;
+        public MaterialProperties Properties;
 
         protected virtual void Awake()
         {
-            properties = new MaterialProperties(GetComponent<MeshRenderer>());
-            PrepareProperties(properties);
-            properties.Apply();
+            InitializePropertiesIfNeeded();
+        }
+
+        protected virtual void InitializePropertiesIfNeeded()
+        {
+            if (Properties != null) return;
+            Properties = new MaterialProperties(GetComponent<MeshRenderer>());
+            PrepareProperties(Properties);
+            Properties.Apply();
         }
 
         protected virtual void OnDestroy()
         {
-            properties.Dispose();
+            Properties.Dispose();
         }
 
         protected abstract void PrepareProperties(MaterialProperties materialProperties);
 
         public bool ApplyProperties()
         {
-            return properties.Apply();
+            return Properties.Apply();
         }
     }
 }

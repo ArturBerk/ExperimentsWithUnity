@@ -14,4 +14,17 @@ namespace Things
             materialPropertyBlock.SetVector(PropertyId, Value);
         }
     }
+
+    internal class MatrixProperty : MaterialProperties.Property<Matrix4x4>
+    {
+
+        internal MatrixProperty(MaterialProperties properties, string name) : base(properties, name)
+        {
+        }
+
+        public override void Apply(MaterialPropertyBlock materialPropertyBlock)
+        {
+            materialPropertyBlock.SetMatrix(PropertyId, Value);
+        }
+    }
 }
